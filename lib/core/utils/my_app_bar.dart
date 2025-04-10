@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar({super.key, required this.title});
   @override
-  Size get preferredSize => Size.fromHeight(35.h);
+  Size get preferredSize => Size.fromHeight(80.h);
   final String title;
 
   @override

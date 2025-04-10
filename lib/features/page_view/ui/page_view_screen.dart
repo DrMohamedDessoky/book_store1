@@ -70,6 +70,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   ),
                 ),
                 InkWell(
+                 
                   onTap: () {
                     if (controller.page! < 2) {
                       controller.nextPage(

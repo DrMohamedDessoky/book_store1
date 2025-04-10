@@ -3,6 +3,7 @@ import 'package:bookia/core/utils/app_colors.dart';
 import 'package:bookia/core/utils/my_app_bar.dart';
 import 'package:bookia/core/core_widgets/field.dart';
 import 'package:bookia/core/core_widgets/media_container.dart';
+import 'package:bookia/features/forget_password/ui/forget_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -53,11 +54,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  Text(
-                    "Forgot Your password?",
-                    style: TextStyle(
-                      color: AppColors.appMainColor,
-                      fontFamily: AppConstant.openSans,
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ForgetPasswordScreen(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Forgot Your password?",
+                      style: TextStyle(
+                        color: AppColors.appMainColor,
+                        fontFamily: AppConstant.openSans,
+                      ),
                     ),
                   ),
                 ],
