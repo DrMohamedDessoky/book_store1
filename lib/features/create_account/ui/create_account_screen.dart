@@ -18,12 +18,13 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: MyAppBar(title: "create account"),
-      body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+      body: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
           child: Column(
+ 
             children: [
               Field(hintText: "Enter Your name", title: "Name"),
               Field(hintText: "Enter your Email", title: "Email"),
@@ -34,7 +35,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   Checkbox(
                     visualDensity: VisualDensity.compact,
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-
+          
                     activeColor: AppColors.appMainColor,
                     value: isChecked,
                     onChanged: (value) {
@@ -84,7 +85,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(color: Colors.black),
-
+          
                       height: 1,
                     ),
                   ),
@@ -95,7 +96,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(color: Colors.black),
-
+          
                       height: 1,
                     ),
                   ),
