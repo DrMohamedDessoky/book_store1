@@ -1,8 +1,10 @@
 import 'package:bookia/core/helper/app_constant.dart';
 import 'package:bookia/core/utils/app_colors.dart';
+import 'package:bookia/features/create_account/cubit/create_account_cubit.dart';
 import 'package:bookia/features/create_account/ui/create_account_screen.dart';
 import 'package:bookia/features/login/ui/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -82,7 +84,11 @@ class AuthScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CreateAccountScreen(),
+                        builder:
+                            (context) => BlocProvider(
+                              create: (context) => CreateAccountCubit(),
+                              child: CreateAccountScreen(),
+                            ),
                       ),
                     );
                   },

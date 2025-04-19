@@ -16,6 +16,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool isChecked = false;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +30,8 @@ class _LoginScreenState extends State<LoginScreen> {
           padding: EdgeInsets.symmetric(horizontal: 15.w),
           child: Column(
             children: [
-              Field(hintText: "Enter Your Name", title: "Email"),
-              Field(hintText: "Enter Your Password", title: "Password"),
+              Field(hintText: "Enter Your Name", title: "Email",controller: emailController,),
+              Field(hintText: "Enter Your Password", title: "Password",controller: passwordController,),
               SizedBox(height: 30.h),
               Row(
                 children: [

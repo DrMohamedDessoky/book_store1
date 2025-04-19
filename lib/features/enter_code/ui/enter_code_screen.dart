@@ -24,11 +24,20 @@ class EnterCodeScreen extends StatelessWidget {
                 return SizedBox(
                   width: 50.w,
                   child: TextField(
+                    onChanged: (value) {
+                      if (value.length == 1 && index < 3) {
+                        FocusScope.of(context).nextFocus();
+                      } else if (value.isEmpty && index > 0) {
+                        FocusScope.of(context).previousFocus();
+                      }
+                    },
+                    onTapOutside: (event) {
+                      FocusScope.of(context).unfocus();
+                    },
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(border: OutlineInputBorder()),
                     maxLength: 1,
                     keyboardType: TextInputType.number,
-                    onChanged: (value) => FocusScope.of(context).unfocus(),
                   ),
                 );
               }),
