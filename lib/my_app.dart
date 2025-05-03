@@ -1,11 +1,10 @@
+import 'package:bookia/core/helper/app_routes_map.dart';
 import 'package:bookia/features/check_auth/check_auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
-  
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,9 @@ class MyApp extends StatelessWidget {
       builder:
           (_, child) => MaterialApp(
             debugShowCheckedModeBanner: false,
-            home:CheckAuthScreen(),
+            routes: 
+             AppRoutesMap.routeMap, 
+            home: CheckAuthScreen(),
           ),
     );
   }

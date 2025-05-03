@@ -1,3 +1,5 @@
+import 'package:bookia/core/sevices/local_services/pref_keys.dart';
+import 'package:bookia/core/sevices/local_services/shared_prefs_helper.dart';
 import 'package:bookia/features/auth/ui/auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,6 +35,10 @@ class _PageViewScreenState extends State<PageViewScreen> {
           children: [
             TextButton(
               onPressed: () {
+                SharedPrefsHelper.saveData(
+                  key: PrefKeys.isOnBoardOpened,
+                  value: true,
+                );
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => AuthScreen()),
@@ -70,7 +76,6 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   ),
                 ),
                 InkWell(
-                 
                   onTap: () {
                     if (controller.page! < 2) {
                       controller.nextPage(
@@ -78,6 +83,10 @@ class _PageViewScreenState extends State<PageViewScreen> {
                         curve: Curves.easeInOutCubic,
                       );
                     } else {
+                      SharedPrefsHelper.saveData(
+                        key: PrefKeys.isOnBoardOpened,
+                        value: true,
+                      );
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => AuthScreen()),

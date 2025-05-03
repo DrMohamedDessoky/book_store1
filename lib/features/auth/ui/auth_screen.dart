@@ -1,10 +1,7 @@
 import 'package:bookia/core/helper/app_constant.dart';
+import 'package:bookia/core/helper/app_routes.dart';
 import 'package:bookia/core/utils/app_colors.dart';
-import 'package:bookia/features/create_account/cubit/create_account_cubit.dart';
-import 'package:bookia/features/create_account/ui/create_account_screen.dart';
-import 'package:bookia/features/login/ui/login_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -50,10 +47,7 @@ class AuthScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()),
-                    );
+                    Navigator.pushNamed(context, AppRoutes.loginScreen);
                   },
                   child: Container(
                     padding: EdgeInsets.all(10.sp),
@@ -81,16 +75,7 @@ class AuthScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder:
-                            (context) => BlocProvider(
-                              create: (context) => CreateAccountCubit(),
-                              child: CreateAccountScreen(),
-                            ),
-                      ),
-                    );
+                    Navigator.pushNamed(context, AppRoutes.createAccoutScreen);
                   },
                   child: Container(
                     padding: EdgeInsets.all(10.sp),

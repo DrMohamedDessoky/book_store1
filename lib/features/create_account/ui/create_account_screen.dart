@@ -1,6 +1,7 @@
 import 'package:bookia/core/core_widgets/field.dart';
 import 'package:bookia/core/core_widgets/media_container.dart';
 import 'package:bookia/core/helper/app_constant.dart';
+import 'package:bookia/core/helper/app_routes.dart';
 import 'package:bookia/core/utils/app_colors.dart';
 import 'package:bookia/core/utils/my_app_bar.dart';
 import 'package:bookia/features/create_account/cubit/create_account_cubit.dart';
@@ -57,8 +58,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     ),
                   ),
                 );
-              }else if(state is CreateAccountSuccess){
-                Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context)=>TestScreen()), (route) => false);
+              } else if (state is CreateAccountSuccess) {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => TestScreen()),
+                  (route) => false,
+                );
               }
             },
             builder: (context, state) {
@@ -264,11 +269,16 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           "Already have an account? ",
                           style: TextStyle(fontFamily: AppConstant.openSans),
                         ),
-                        Text(
-                          "Sign in",
-                          style: TextStyle(
-                            color: AppColors.appMainColor,
-                            fontFamily: AppConstant.openSans,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacementNamed(context, AppRoutes.loginScreen);
+                          },
+                          child: Text(
+                            "Sign in",
+                            style: TextStyle(
+                              color: AppColors.appMainColor,
+                              fontFamily: AppConstant.openSans,
+                            ),
                           ),
                         ),
                       ],

@@ -1,14 +1,9 @@
 import 'package:bookia/core/sevices/network_services/a_p_is.dart';
 import 'package:dio/dio.dart';
 
-class CreateAccountRepo {
+class LoginRepo {
   static Dio? _dio;
-  static creatAccount({
-    required String name,
-    required String email,
-    required String password,
-    required String confirmPassword,
-  }) async {
+  static login({required String email, required String password}) async {
     _dio = Dio(
       BaseOptions(
         baseUrl: APIs.baseUrl,
@@ -20,16 +15,10 @@ class CreateAccountRepo {
     );
     try {
       final response = await _dio?.post(
-        "register",
-        data: {
-          "name": name,
-          "email": email,
-          "password": password,
-          "password_confirmation": confirmPassword,
-        },
+        "login",
+        data: {"email": email, "password": password},
       );
-      // debugPrint("response is $response");
-      if (response?.statusCode == 201) {
+      if (response?.statusCode == 200) {
         return response?.data;
       } else {
         return null;

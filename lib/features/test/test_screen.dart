@@ -1,9 +1,10 @@
 import 'package:bookia/core/helper/app_constant.dart';
+import 'package:bookia/core/sevices/local_services/pref_keys.dart';
+import 'package:bookia/core/sevices/local_services/shared_prefs_helper.dart';
 import 'package:bookia/core/utils/app_colors.dart';
 import 'package:bookia/features/auth/ui/auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class TestScreen extends StatelessWidget {
   const TestScreen({super.key});
@@ -26,8 +27,7 @@ class TestScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () async {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                await prefs.clear();
+                await SharedPrefsHelper.removeData(PrefKeys.tokenKey);
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => AuthScreen()),
